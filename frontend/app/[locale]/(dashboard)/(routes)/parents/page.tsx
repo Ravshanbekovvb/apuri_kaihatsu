@@ -55,7 +55,7 @@ export default function Info() {
         queryClient.invalidateQueries({ queryKey: ["parents"] });
         toast({
           title: t("parentDeleted"),
-          description: data?.message,
+          description: data.message,
         });
       },
     }
@@ -134,6 +134,8 @@ export default function Info() {
               </DialogClose>
               <Button
                 onClick={() => {
+                  console.log(row.original.id);
+                  
                   setParentId(row.original.id);
                   mutate();
                 }}

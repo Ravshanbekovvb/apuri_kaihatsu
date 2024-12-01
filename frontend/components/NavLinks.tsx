@@ -88,6 +88,7 @@ const NavLinks = ({ user }: { user: User }) => {
             Icon={link.icon}
             name={t(link.nameKey)}
             badge={link?.badge}
+            className="hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black duration-300"
           />
         );
       })}

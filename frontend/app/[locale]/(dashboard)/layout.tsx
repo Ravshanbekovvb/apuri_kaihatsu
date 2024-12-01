@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@/navigation";
-import { Bell, CircleUser, Menu, Package2 } from "lucide-react";
+import { Bell, CircleUser, Menu, Package2,LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -32,30 +32,35 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr] relative">
-      <div className="hidden border-r bg-muted/40 md:block ">
+      <div className="hidden border-r-2 border-black bg-muted/40 md:block dark:border-white">
         <div className="flex h-full max-h-screen flex-col gap-2 sticky top-0 z-50">
-          <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-            <Link
-              href="/"
-              className="flex items-center gap-2 font-semibold leading-none"
-            >
+
+          <div className="flex h-14 items-center border-b border-black dark:border-white px-4 lg:h-[60px] lg:px-6">
+            <Link href="/" className="flex items-center gap-2 font-semibold leading-none">
               <Package2 className="h-6 w-6" />
               <span className="">{session && session?.schoolName}</span>
             </Link>
-            {/* <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
-              <Bell className="h-4 w-4" />
-              <span className="sr-only">{t("notifications")}</span>
-            </Button> */}
           </div>
+          {/* <Button variant="outline" size="icon" className="ml-auto h-8 w-8">
+                                                                                              <Bell className="h-4 w-4" />
+                                                                                              <span className="sr-only">{t("notifications")}</span>
+                                                                                              </Button> */}
+
           <div className="flex-1">
             <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
               <NavLinks user={user} />
             </nav>
           </div>
+          <div className="w-56 m-auto mb-3">
+            <button onClick={async () => await signOut()} className="w-full px-3 py-2 flex items-center gap-3 font-semibold border rounded-lg border-black text-black hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black transition duration-300">
+              <LogOut className="h-5 w-5" /> 
+              {t("logout")}
+            </button>
+          </div>
         </div>
       </div>
       <div className="flex flex-col">
-        <header className="flex h-14 items-center gap-4 border-b bg-background px-4 lg:h-[60px] lg:px-6 sticky top-0 z-50">
+        <header className="flex h-14 items-center gap-4 border-b border-black dark:border-white bg-background px-4 lg:h-[60px] lg:px-6 sticky top-0 z-50">
           <Sheet>
             <SheetTrigger asChild>
               <Button
@@ -111,10 +116,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>{t("settings")}</DropdownMenuItem>
                 <DropdownMenuItem>{t("support")}</DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={async () => await signOut()}>
-                  {t("logout")}
-                </DropdownMenuItem>
                 <div className="sm:hidden">
                   <DropdownMenuSeparator />
                   <div className="flex gap-2">
@@ -133,3 +134,4 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     </div>
   );
 }
+

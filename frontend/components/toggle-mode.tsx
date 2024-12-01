@@ -27,15 +27,13 @@ export function ToggleMode() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          {t("themes.light")}
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          {t("themes.dark")}
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          {t("themes.system")}
-        </DropdownMenuItem>
+
+        <DropdownMenuItem className='focus:bg-black focus:text-white dark:focus:bg-white dark:focus:text-black' onClick={() => setTheme("light")}>{t("themes.light")}</DropdownMenuItem>
+
+        <DropdownMenuItem className="focus:bg-black focus:text-white dark:focus:bg-white dark:focus:text-black" onClick={() => setTheme("dark")}>{t("themes.dark")}</DropdownMenuItem>
+
+        <DropdownMenuItem className="focus:bg-black focus:text-white dark:focus:bg-white dark:focus:text-black" onClick={() => setTheme("system")}>{t("themes.system")}</DropdownMenuItem>
+
       </DropdownMenuContent>
     </DropdownMenu>
   );

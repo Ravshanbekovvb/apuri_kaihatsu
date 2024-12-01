@@ -61,11 +61,9 @@ export default function DashboardPage() {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 2xl:grid-cols-6">
         {cardData.map((data, index) => (
           <Link key={index} href={data.href} passHref>
-            <Card className="w-full h-full">
+            <Card className="w-full h-full border-[1px] border-black dark:border-white hover:bg-black duration-300 dark:hover:bg-white group">
               <CardHeader className="p-3">
-                <CardTitle className="text-3xl font-medium break-words">
-                  {t(data.title)}
-                </CardTitle>
+                <CardTitle className="text-3xl font-medium break-words group-hover:text-white dark:group-hover:text-black">{t(data.title)}</CardTitle>
               </CardHeader>
               <CardFooter className="px-3">
                 <p className="text-xs text-muted-foreground">

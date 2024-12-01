@@ -11,9 +11,10 @@ interface NavLinkProps {
   Icon: React.ElementType;
   name: string;
   badge?: number;
+  className?: string; // className propsi qo'shildi
 }
 
-const NavLink: React.FC<NavLinkProps> = ({ href, Icon, name, badge }) => {
+const NavLink: React.FC<NavLinkProps> = ({ href, Icon, name, badge, className }) => {
   const pathname = usePathname();
   const { data: session } = useSession();
   const { data: notificationCount } = useQuery<number>({
@@ -43,8 +44,8 @@ const NavLink: React.FC<NavLinkProps> = ({ href, Icon, name, badge }) => {
     <Link
       href={href}
       className={`flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${
-        pathname.startsWith(href) ? "bg-muted text-primary" : ""
-      }`}
+        pathname.startsWith(href) ? "bg-gray-200 dark:bg-muted text-primary " : ""
+      } ${className}`} // className qiymatini biriktirish
     >
       <Icon className="h-4 w-4" />
       {name}

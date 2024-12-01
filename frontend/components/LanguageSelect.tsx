@@ -25,10 +25,41 @@ const LanguageSelect = () => {
         <SelectValue placeholder={t("language")} />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="en">English</SelectItem>
-        <SelectItem value="ja">日本語</SelectItem>
-        <SelectItem value="uz">O‘zbekcha</SelectItem>
-        <SelectItem value="ru">Русский</SelectItem>
+        <SelectItem value="en">
+          <div className="flex items-center gap-2 ">
+            <img
+              src="/assets/usa.png"
+              alt="English"
+              className="h-5 w-6 object-cover rounded border-[1px]"
+            />
+            English
+          </div>
+        </SelectItem>
+        <SelectItem value="ja"><div className="flex items-center gap-2 ">
+            <img
+              src="/assets/ja.png"
+              alt="English"
+              className="h-5 w-6 object-cover rounded border-[1px]"
+            />
+            日本語
+          </div></SelectItem>
+        <SelectItem value="uz">
+        <div className="flex items-center gap-2 ">
+            <img
+              src="/assets/uz.png"
+              alt="English"
+              className="h-5 w-6 object-cover rounded border-[1px]"
+            />
+            O‘zbekcha
+          </div></SelectItem>
+        <SelectItem value="ru"><div className="flex items-center gap-2 border-black ">
+            <img
+              src="/assets/ru.png"
+              alt="English"
+              className="h-5 w-6 object-cover rounded border-[1px]"
+            />
+            Русский
+          </div></SelectItem>
       </SelectContent>
     </Select>
   );
